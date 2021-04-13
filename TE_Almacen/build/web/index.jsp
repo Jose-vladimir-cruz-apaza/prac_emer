@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.emergentes.modelo.Productos"%>
 <%@page import="java.util.ArrayList"%>
 <%
@@ -8,6 +9,7 @@
     }
     System.out.println("llega la lista");
     ArrayList<Productos> pr = (ArrayList<Productos>) session.getAttribute("producto");
+    request.setAttribute("listados", pr);
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,21 +28,24 @@
                 <td>Precio</td>
                 <td>Cantidad</td>
             </tr>
+   
             <%  
             if (pr != null) {
-                  for (Productos item:pr) {
             %>
+                <c:forEach var="list" items="${listados}"> 
             <tr>
-                <td><%= item.getId() %></td>
-                <td><%= item.getProducto() %></td>
-                <td><%= item.getPrecio() %></td>
-                <td><%= item.getCantidad() %></td>
-                <td><a href="ProcesaProductos?op=modificar&id=<%= item.getId() %>">Modificar</a></td>
-                <td><a href="ProcesaProductos?op=eliminar&id=<%= item.getId() %>" onclick="return(confirm(''))">Eliminar</a></td>
-            </tr>
+                <td>${list.id}</td>
+                <td>${list.producto}</td>
+                <td>${list.precio}</td>
+                <td>${list.cantidad}</td>
+                <td><a href="ProcesaProductos?op=modificar&id=${list.id}">Modificar</a></td>
+                <td><a href="ProcesaProductos?op=eliminar&id=${list.id}" onclick="return(confirm(''))">Eliminar</a></td>
+
+             </tr>
+                </c:forEach>
+
             <%
                 }
-            }
             %>
         </table>
     </body>

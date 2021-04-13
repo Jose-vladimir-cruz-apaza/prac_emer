@@ -1,7 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.emergentes.modelo.Productos"%>
-<%
-    Productos pro = (Productos) request.getAttribute("miobjpro");
-%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,22 +8,23 @@
         <title>Registro Productos</title>
     </head>
     <body>
+        <jsp:useBean id="miobjpro" scope="request" class="com.emergentes.modelo.Productos" />
         <h1>Registro Productos</h1>
         <form action="ProcesaProductos" method="post">
             <label>ID</label>
-            <input type="text" name="id" value="<%= pro.getId() %>" size="2" readonly/>
+            <input type="text" name="id" value="<jsp:getProperty name="miobjpro" property="id" />" size="2" readonly/>
             <br>
             <br>
             <label>Producto</label>
-            <input type="text" name="productos" value="<%= pro.getProducto() %>">
+            <input type="text" name="productos" value="<jsp:getProperty name="miobjpro" property="producto" />">
             <br>
             <br>
             <label>Precio</label>
-            <input type="text" name="precio" value="<%= pro.getPrecio() %>"/>
+            <input type="text" name="precio" value="<jsp:getProperty name="miobjpro" property="precio" />"/>
             <br>
             <br>
             <label>Cantidad</label>
-            <input type="number" name="cantidad" value="<%= pro.getCantidad() %>"/>
+            <input type="number" name="cantidad" value="<jsp:getProperty name="miobjpro" property="cantidad" />"/>
             <br>
             <br>
             <input type="submit" value="Ingresar"/>

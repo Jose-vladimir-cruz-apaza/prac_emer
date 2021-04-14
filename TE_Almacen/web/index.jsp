@@ -39,7 +39,7 @@
                 <td>${list.precio}</td>
                 <td>${list.cantidad}</td>
                 <td><a href="ProcesaProductos?op=modificar&id=${list.id}">Modificar</a></td>
-                <td><a href="ProcesaProductos?op=eliminar&id=${list.id}" onclick="return(confirm(''))">Eliminar</a></td>
+                <td><a href="ProcesaProductos?op=eliminar&id=${list.id}" onclick="return(confirm('Desea Eliminar?'))">Eliminar</a></td>
 
              </tr>
                 </c:forEach>

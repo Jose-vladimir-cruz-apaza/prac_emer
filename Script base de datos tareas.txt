@@ -1,0 +1,11 @@
+CREATE DATABASE bd_proyectos;
+
+CREATE TABLE tareas(
+id INT(11) PRIMARY KEY AUTO_INCREMENT,
+tarea VARCHAR(100), 
+prioridad INT(11),
+completado INT(11)    
+)
+
+
+INSERT INTO tareas (tarea,prioridad,completado) VALUES ("Reunion con estudiantes de la carrera",1,1);

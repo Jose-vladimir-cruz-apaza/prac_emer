@@ -1,0 +1,25 @@
+CREATE DATABASE bd_blog;
+
+CREATE TABLE usuarios(
+id INT(11) AUTO_INCREMENT PRIMARY KEY,
+usuario VARCHAR(20),
+PASSWORD varchar(255)
+);
+
+CREATE TABLE posts(
+id INT(11) AUTO_INCREMENT PRIMARY KEY,
+fecha DATE,
+titulo VARCHAR(30),
+contenido TEXT 
+); 
+
+insert into usuarios (usuario,password) values ("admin","admin");
+
+
+INSERT INTO posts (fecha,titulo,contenido) 
+VALUES ("2021-05-21","Medicina natural","lgunos pacientes dicen notar cierta mejoría de los síntomas de su malestar, pero no existen estudios que permitan determinar si la mejoría se debe al efecto del tratamiento ");
+	
+SELECT * FROM posts;
+
+
+

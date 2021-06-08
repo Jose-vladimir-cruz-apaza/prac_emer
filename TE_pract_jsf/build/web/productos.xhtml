@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <h1>Registro de productos</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Productos" for="producto"/>
+                <h:inputText id="producto" label="producto" value="#{managedBeanProductos.producto}" required="true"/>
+                <h:message for="producto" />
+                
+                <h:outputLabel value="Existencia" for="existencia"/>
+                <h:inputText id="existencia" label="existencia" value="#{managedBeanProductos.existencia}" required="true"/>
+                <h:message for="existencia"/>
+                
+                <h:outputLabel value="Categoria" for="categoria"/>
+                <h:selectOneMenu id="categoria" label="Categoria" value="#{managedBeanProductos.categoria}" required="true">
+                <f:selectItem itemLabel="" itemValue="" />
+                <f:selectItem itemLabel="Refrescos" itemValue="refrescos" />
+                <f:selectItem itemLabel="Dulces" itemValue="dulces" />
+                <f:selectItem itemLabel="Galletas" itemValue="galletas" />                
+                </h:selectOneMenu>
+                <h:message for="categoria"/>
+                
+                <h:outputLabel value="Precio" for="precio"/>
+                <h:inputText id="precio" label="Introduzca un precio" value="#{managedBeanProductos.precio}" required="true"/>
+                <h:message for="precio"/>
+                
+                <h:commandButton value="Registre el producto" action="producto_vista" />
+            </h:panelGrid>
+        </h:form>
+        <h:form>
+            <h:commandLink action="index" value="Volver al inicio"/>
+        </h:form> 
+    </h:body>
+</html>
+

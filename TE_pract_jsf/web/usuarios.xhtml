@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Registro de usuarios</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nombre" for="nombre"/>
+                <h:inputText id="nombre" label="Nombre" value="#{managedBeanUsuarios.nombre}" required="true"/>
+                <h:message for="nombre" />
+                
+                <h:outputLabel value="Apellidos" for="apellidos"/>
+                <h:inputText id="apellidos" label="Apellidos" value="#{managedBeanUsuarios.apellido}" required="true"/>
+                <h:message for="apellidos"/>
+                
+                <h:outputLabel value="Correo" for="corrreo"/>
+                <h:inputText id="correo" label="Introduzca un correo" value="#{managedBeanUsuarios.correo}" required="true">
+                <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />               
+                </h:inputText>
+                <h:message for="correo"/>
+                
+                <h:outputLabel value="Contraseña" for="contraseña"/>            
+                <h:inputSecret id="contraseña" label="Contraseña" value="#{managedBeanUsuarios.password}" required="true"/>
+                <h:message for="contraseña"/>
+                
+                <h:commandButton value="Registre al usuario" action="usuarios_vista" />
+            </h:panelGrid>
+        </h:form>
+        <h:form>
+            <h:commandLink action="index" value="Volver al inicio"/>
+        </h:form> 
+    </h:body>
+</html>
+

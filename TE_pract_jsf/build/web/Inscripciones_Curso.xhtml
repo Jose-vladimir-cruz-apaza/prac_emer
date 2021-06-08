@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Inscripciones en curso</h1>
+        <h:form>
+        <h:panelGrid columns="3">           
+            <h:outputLabel value="Nombre" for="nombre"/>
+            <h:inputText id="nombre" label="nombre" value="#{managedBeanCurso.nombre}" required="true"/>
+            <h:message for="nombre" />           
+            <h:outputLabel value="Apellidos" for="apellidos"/>
+            <h:inputText id="apellidos" label="Apellidos" value="#{managedBeanCurso.apellidos}" required="true"/>
+            <h:message for="apellidos"/>           
+            <h:outputLabel value="Seleccione el curso" />
+            <h:selectOneMenu id="curso" label="Curso" value="#{managedBeanCurso.curso}" required="true">
+                <f:selectItem itemLabel="" itemValue="" />
+                <f:selectItem itemLabel="Programacion 1" itemValue="programacion 1" />
+                <f:selectItem itemLabel="Base de datos 2" itemValue="base de datos 2" />
+                <f:selectItem itemLabel="Estadistica" itemValue="estadistica" />                
+            </h:selectOneMenu>
+            <h:message for="curso"/>                     
+            <h:panelGroup/>
+            <h:commandButton id="registro" value="Enviar Inscripcion" action="inscripcion"/>          
+        </h:panelGrid>
+        </h:form>        
+        <h:form>
+            <h:commandLink action="index" value="Volver al inicio"/>
+        </h:form> 
+    </h:body>
+</html>
+
